@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.auth.fragment.forget_pass.MakeSelectionFragment">
+
+    <TextView
+        android:id="@+id/selectTxt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Make"
+        android:fontFamily="@font/ubuntu_medium"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="30sp"
+        android:textAllCaps="true"
+        android:layout_marginTop="25dp"
+        android:gravity="start"
+        android:textColor="@color/logo_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/selectTxt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selection"
+        android:fontFamily="@font/ubuntu_medium"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="30sp"
+        android:textAllCaps="true"
+        android:gravity="start"
+        android:textColor="@color/logo_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectTxt1"/>
+
+    <TextView
+        android:id="@+id/p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/lighGrey"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Select which contact detail should we use to reset your password?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectTxt2"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectMobileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/logo_yellow"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/p1">
+
+        <ImageView
+            android:id="@+id/smartPhoneImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/smartphone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/smsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="via sms:"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/smartPhoneImg"
+            app:layout_constraintTop_toTopOf="@id/smartPhoneImg"/>
+
+        <TextView
+            android:id="@+id/mobileNumTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8755420120"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/smartPhoneImg"
+            app:layout_constraintTop_toBottomOf="@id/smsTxt"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectEmailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/logo_yellow"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectMobileLayout">
+
+        <ImageView
+            android:id="@+id/smartMailImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/mailTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="via mail:"
+            android:fontFamily="@font/ubuntu_medium"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/smartMailImg"
+            app:layout_constraintTop_toTopOf="@id/smartMailImg"/>
+
+        <TextView
+            android:id="@+id/mobileEmailTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pankaj@gmail.com"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/smartMailImg"
+            app:layout_constraintTop_toBottomOf="@id/mailTxt"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

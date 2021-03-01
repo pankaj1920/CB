@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_emailVerificationFragment"
+            app:destination="@id/emailVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_verifyRegistrationFragment"
+            app:destination="@id/verifyRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.forget_pass.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_makeSelectionFragment"
+            app:destination="@id/makeSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.OtpVerificationFragment"
+        android:label="fragment_otp_verification"
+        tools:layout="@layout/fragment_otp_verification" />
+    <fragment
+        android:id="@+id/emailVerificationFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.EmailVerificationFragment"
+        android:label="fragment_email_verification"
+        tools:layout="@layout/fragment_email_verification" />
+
+    <fragment
+        android:id="@+id/makeSelectionFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.forget_pass.MakeSelectionFragment"
+        android:label="Make Selection"
+        tools:layout="@layout/fragment_make_selection" >
+        <action
+            android:id="@+id/action_makeSelectionFragment_to_newCredentialFragment"
+            app:destination="@id/newCredentialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newCredentialFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.forget_pass.NewCredentialFragment"
+        android:label="fragment_new_credential"
+        tools:layout="@layout/fragment_new_credential" >
+        <action
+            android:id="@+id/action_newCredentialFragment_to_passwordUpdatedSuccessfullyFragment"
+            app:destination="@id/passwordUpdatedSuccessfullyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordUpdatedSuccessfullyFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.forget_pass.PasswordUpdatedSuccessfullyFragment"
+        android:label="fragment_password_updated_successfully"
+        tools:layout="@layout/fragment_password_updated_successfully" >
+        <action
+            android:id="@+id/action_passwordUpdatedSuccessfullyFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verifyRegistrationFragment"
+        android:name="com.example.carryboxkotlin.ui.auth.fragment.VerifyRegistrationFragment"
+        android:label="fragment_verify_registration"
+        tools:layout="@layout/fragment_verify_registration" >
+        <action
+            android:id="@+id/action_verifyRegistrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument android:name="mobile"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
+</navigation>

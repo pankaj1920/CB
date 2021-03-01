@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    tools:context=".ui.auth.fragment.SignUpFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/loginlogo"
+            android:layout_width="130dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo"
+            app:civ_border_color="@color/logo_yellow"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/signUpTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/sign_up_txt"
+            android:textColor="@color/logo_yellow"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginlogo" />
+
+
+        <EditText
+            android:id="@+id/signUpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="12dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:hint="@string/full_name_txt"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_txt_boder"
+            app:layout_constraintTop_toBottomOf="@id/signUpTxt" />
+
+        <EditText
+            android:id="@+id/signUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="12dp"
+            android:lines="1"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:hint="Email Address"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_txt_boder"
+            app:layout_constraintTop_toBottomOf="@id/signUpName" />
+
+        <EditText
+            android:id="@+id/signUpMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="12dp"
+            android:lines="1"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:hint="Mobile Number"
+            android:maxLines="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_txt_boder"
+            app:layout_constraintTop_toBottomOf="@id/signUpEmail" />
+
+        <EditText
+            android:id="@+id/signUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="12dp"
+            android:lines="1"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:hint="Password"
+            android:maxLines="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_txt_boder"
+            app:layout_constraintTop_toBottomOf="@id/signUpMobile" />
+
+        <Button
+            android:id="@+id/sign_up_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:text="@string/sign_up_txt"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:fontFamily="@font/roboto_regular"
+            android:background="@drawable/signin_btn_boder"
+            app:layout_constraintStart_toStartOf="@id/signUpPassword"
+            app:layout_constraintEnd_toEndOf="@id/signUpPassword"
+            app:layout_constraintTop_toBottomOf="@id/signUpPassword"/>
+
+        <TextView
+            android:id="@+id/dont_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/sign_up_button"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_button"
+            android:text="Already have an account ?"
+            android:textColor="@color/white"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/signInTxt"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Sign In "
+            android:layout_marginStart="5dp"
+            android:textColor="@color/logo_yellow"
+            android:textSize="17sp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dont_txt"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
