@@ -13,29 +13,43 @@ import com.example.kotlinretrofit.model.QuoteModel
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class CorotinesActivity : AppCompatActivity() {
+class CorotinesActivity : AppCompatActivity(),CoroutineScope {
 
     lateinit var quoteRecycler: RecyclerView
     lateinit var adapter: QuoteAdapter
 
+    private lateinit var job: Job
+
+    override val coroutineContext: CoroutineContext
+        // here we are using Dispatchers.Main bcz our app get crashed if we toch the view from other than main thread
+        // so we are use Dispatchers.Main as a corotine context
+        get() = job + Dispatchers.Main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_corotines)
+
+        //when our activity is created we should inatalize the job and
+        // in on distory we need to destory the job
+        job = Job()
 
         quoteRecycler = findViewById(R.id.quoteRecycler)
 
         quoteRecycler.layoutManager = LinearLayoutManager(this)
 
         //now we have corotine scope and we can use it to launch our suspending function
-
-
-        CoroutineScope(Dispatchers.Main).launch {
-
-            withContext(Dispatchers.Main) {
-                getQuote()
-            }
+        launch {
+            //here we are making the network request in main thread
+            val quote = getQuote()
+            quoteRecycler.adapter = QuoteAdapter(quote)
         }
+
+        /*  CoroutineScope(Dispatchers.IO).launch {
+
+              withContext(Dispatchers.Main) {
+                  getQuote()
+              }
+          }*/
 
 
     }
@@ -64,26 +78,6 @@ class CorotinesActivity : AppCompatActivity() {
         }*/
     }
 
-
-/*
-
-    private suspend fun getQuote() {
-        val response = BaseClient.instance.getQuote()
-
-        if (response.isSuccessful) {
-            val quoteModel: QuoteModel? = response.body()
-            if (quoteModel!!.isSuccessful.equals("true")) {
-                val quoteData: List<QuoteData> = quoteModel.quotes
-                quoteRecycler.adapter = QuoteAdapter(quoteData)
-            } else {
-                Toast.makeText(applicationContext, "No Data", Toast.LENGTH_SHORT).show()
-            }
-        } else {
-            Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-*/
 
 
 
@@ -115,4 +109,9 @@ class CorotinesActivity : AppCompatActivity() {
          })
      }*/
 
+    override fun onDestroy() {
+        super.onDestroy()
+        // with the help of this cancle whenever the activity or fragment get destored all the corotines will be cancled
+        job.cancel()
+    }
 }
