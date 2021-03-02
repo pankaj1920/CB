@@ -30,10 +30,22 @@ class CorotinesActivity : AppCompatActivity() {
         //now we have corotine scope and we can use it to launch our suspending function
 
 
-        CoroutineScope(Dispatchers.Main).launch {
+   /*     CoroutineScope(Dispatchers.Main).launch {
 
             withContext(Dispatchers.Main) {
                 getQuote()
+            }
+        }*/
+
+        CoroutineScope(Dispatchers.Main).launch {
+
+            val quote = getQuote()
+            if (quote!!.isSuccessful.equals("true")) {
+                Toast.makeText(applicationContext, "Message "+quote.isSuccessful, Toast.LENGTH_SHORT).show()
+                val quoteData: List<QuoteData> = quote.quotes
+                quoteRecycler.adapter = QuoteAdapter(quoteData)
+            } else {
+                Toast.makeText(applicationContext, "No Data", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -41,13 +53,13 @@ class CorotinesActivity : AppCompatActivity() {
     }
 
 
-    private suspend fun getQuote() :List<QuoteData>{
+    private suspend fun getQuote() :QuoteModel{
 //        val response = BaseClient.instance.getQuote()
         // here we want to use io dispatcher of this network call and to make it in the io dispatcher
         // we can use the function withContext to run in io thread and
         // it will return it to our main corotine scope that is using the main dispatcher
         return withContext(Dispatchers.IO){
-            BaseClient.instance.getQuote().body()?.quotes!!
+            BaseClient.instance.getQuote().body()!!
 
         }
 /*

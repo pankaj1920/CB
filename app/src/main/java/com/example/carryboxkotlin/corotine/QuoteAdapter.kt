@@ -19,6 +19,7 @@ class QuoteAdapter(val quoteData:List<QuoteData>): RecyclerView.Adapter<Quote_VH
         val data:QuoteData = quoteData.get(position)
         holder.quoteText.text = data.quote
         holder.quoteByText.text = data.author
+
     }
 
     override fun getItemCount(): Int {
@@ -29,4 +30,8 @@ class QuoteAdapter(val quoteData:List<QuoteData>): RecyclerView.Adapter<Quote_VH
 class Quote_VH(itemView: View): RecyclerView.ViewHolder(itemView) {
     val quoteText:TextView = itemView.findViewById(R.id.quoteText)
     val quoteByText:TextView = itemView.findViewById(R.id.quoteByText)
+}
+
+interface QuoteItemClicked{
+    fun onItemClicked(item:String)
 }
