@@ -10,17 +10,17 @@ interface CarryBoxApi {
 
     @FormUrlEncoded
     @POST("generateMobileOtp")
-    fun generateMobileOtp(
+    suspend fun generateMobileOtp(
         @Field("phone") phone: String
-    ): Call<CommonModel>
+    ): CommonModel
 
     @FormUrlEncoded
     @POST("register")
-    fun register(
+    suspend fun register(
         @Field("phone")phone:String,
         @Field("otp")otp:String,
         @Field("name")name:String,
         @Field("email_id")email_id:String,
         @Field("password")password:String,
-    ):Call<CommonModel>
+    ):CommonModel
 }

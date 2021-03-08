@@ -39,7 +39,7 @@ class VerifyRegistrationFragment : Fragment() {
         val password = args.password
 
 
-        binding.verfiyOtp.setOnClickListener {
+     /*   binding.verfiyOtp.setOnClickListener {
             val otp = binding.otpEt.text.toString().trim()
 
             val call: Call<CommonModel> = BaseClient.instance.register(phone = mobile,
@@ -67,7 +67,7 @@ class VerifyRegistrationFragment : Fragment() {
                 }
 
             })
-        }
+        }*/
     }
 
 }

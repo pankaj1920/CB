@@ -1,0 +1,10 @@
+1-> create Carry Box Api
+2-> create BaseClient
+3-> create Resource file which will handle all the api response
+4-> Model class for response
+5-> BaseRepository //it will be the base repository for all our repository classes
+6-> AuthRepository
+7->BaseFragment
+8-> AuthViewModel
+9-> View Model Factory
+
